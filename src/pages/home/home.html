@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title icon-left>
+      <ion-icon name="person" ></ion-icon>
+      Controle de usuário
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark" floating>Email: </ion-label>
+      <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="dark" floating>Senha: </ion-label>
+      <ion-input type="password" [(ngModel)]="senha"></ion-input>
+    </ion-item>
+
+    <button ion-button icon-right color="dark" (click)="logar()">Logar
+      <ion-icon name="log-in"></ion-icon>
+    </button>
+
+    <button ion-button icon-right color="dark" (click)="redirecionar()">Cadastrar
+      <ion-icon name="person-add"></ion-icon>
+    </button>
+
+   </ion-list>
+
+</ion-content>

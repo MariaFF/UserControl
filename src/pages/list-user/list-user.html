@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Lista Usuários
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <button ion-item *ngFor="let item of users">
+      {{ item.email }} -  {{ item.nome }} - {{item.cpf}}
+    </button>
+
+  <button ion-button icon-right color="dark" (click)="abrirDialog()">Abrir dialog
+    <ion-icon name="close"></ion-icon>
+  </button>
+
+</ion-content>
