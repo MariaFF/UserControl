@@ -7,10 +7,12 @@ import { NavController, AlertController } from 'ionic-angular';
   templateUrl: 'list-user.html'
 })
 export class ListUserPage {
-  private users = [];
+  private listUsers = [];
+  private find;
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public http:Http) {
-    this.users = [];
+    this.listUsers = [];
     this.listar();
+    this.find = '';
   }
 
   ionViewDidLoad() {
@@ -27,7 +29,21 @@ export class ListUserPage {
   }
   listar(){
       this.http.get('http://localhost:8080/userControl/resource/usuario/listar').map(res => res.json()).subscribe(data => {
-        this.users = data;
+        this.listUsers = data;
       });
+    }
+
+   searchByEmail(){
+    console.log(this.find);
+    this.http.get('http://localhost:8080/userControl/resource/usuario/buscarPorEmail/'+this.find).map(res => res.json()).subscribe(data => {
+      this.listUsers = data;
+    });
+  }
+
+    searchByName(){
+    console.log(this.find);
+    this.http.get('http://localhost:8080/userControl/resource/usuario/buscarPorNome/'+this.find).map(res => res.json()).subscribe(data => {
+      this.listUsers = data;
+    });
     }
 }

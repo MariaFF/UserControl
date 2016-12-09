@@ -17,12 +17,6 @@ export class CadastroPessoaPage {
 
   constructor(public navCtrl: NavController, public params: NavParams, public http:Http) {
     this.user={};
-
-
-  }
-
-  ionViewDidLoad() {
-
   }
 
   cancelar(){
@@ -31,16 +25,16 @@ export class CadastroPessoaPage {
 
   inserir(){
     console.log(this.user);
-    //var url = 'http://localhost:8080/AtividadeAvaliativa/resource/user/inserir'
-    this.http.post('http://localhost:8080/AtividadeAvaliativa/resource/user/inserir', this.user).map(res => res.json()).subscribe(data => {
+    var url = 'http://localhost:8080/AtividadeAvaliativa/resource/user/inserir'
+    this.http.post(url, this.user).map(res => res.json()).subscribe(data => {
     console.log('Salvo');
+    //limpar
+    this.user = {};
+    //redirecionar
+    this.irParaLogin();
+
     });
   }
-     //this.http.post('http://localhost:8080/AtividadeAvaliativa/resource/user/inserir', this.user).map(res => res.json()).subscribe(data => {
-    //  console.log('Salvo');
-    //  this.user = {};
-    //     this.irParaLogin();
-
   irParaLogin(){
     this.navCtrl.pop();
   }

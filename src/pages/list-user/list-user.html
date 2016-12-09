@@ -12,13 +12,26 @@
 </ion-header>
 
 <ion-content padding>
+<ion-list>
+  <ion-item>
+    <ion-label fixed>Pesquisa</ion-label>
+    <ion-input type="text" [(ngModel)]="find"></ion-input>
+  </ion-item>
 
-  <button ion-item *ngFor="let item of users">
-      {{ item.email }} -  {{ item.nome }} - {{item.cpf}}
+  <ion-item>
+      <button ion-button color="secondary" outline round block (click)="searchByName()">Buscar por Nome</button>
+    </ion-item>
+
+    <ion-item>
+        <button ion-button color="secondary" outline round block (click)="searchByEmail()">Buscar por Email</button>
+      </ion-item>
+
+  <button ion-item *ngFor="let item of listUsers">
+      {{ item.email }} -  {{ item.nome }}
     </button>
 
   <button ion-button icon-right color="dark" (click)="abrirDialog()">Abrir dialog
     <ion-icon name="close"></ion-icon>
   </button>
-
+</ion-list>
 </ion-content>
